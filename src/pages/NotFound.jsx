@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-export default function NotFound(){
+export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
