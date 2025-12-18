@@ -113,27 +113,25 @@ export default function Home() {
             <br />
             LOCATED IN <span className=" text-yellow-400">ALGERIA </span>
           </h2>
-          <div className="grid md:grid-cols-2  gap-12 items-center">
-            <div className=" p-8 rounded-xl bg-blue-950 relative">
+          <div className="flex  items-center">
+            <div className=" p-8 rounded-xl bg-blue-950 relative lg:min-w-[85%] ">
               <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full top-0 left-1  blur-lg " />
               <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full bottom-0 right-1  blur-lg " />
-              <p className="text-lg text-white  mb-4 leading-relaxed z-10">
+              <p className="text-lg text-white  mb-4 leading-relaxed z-10 lg:max-w-lg">
                 <span className="text-yellow-400">-</span> At TeckFlow, we craft
                 more than just websites and apps — we build powerful digital
                 platforms and software solutions designed to solve real
                 challenges across industries.
               </p>
-              <p className="text-lg text-white  leading-relaxed z-10">
+              <p className="text-lg text-white  leading-relaxed z-10 lg:max-w-lg">
                 From cutting-edge, engaging websites to high-performing mobile
                 and web applications, our team delivers innovative digital
                 productions that elevate your brand and drive growth.
               </p>
-            </div>
-            <div className="relative md:h-96 rounded-lg overflow-hidden">
               <img
                 src="/agency-yellow.png"
                 alt="teckflow agency"
-                className="object-contain"
+                className="object-contain absolute -top-20 -right-16 lg:size-96"
               />
             </div>
           </div>
@@ -219,9 +217,9 @@ export default function Home() {
                 key={i}
                 className="neon-card relative rounded-xl flex flex-col items-center justify-center h-48 hover:-translate-y-4 transition-all duration-300 group cursor-pointer"
               >
-                <div className="absolute  inset-0 bg-black/35 z-10 hover:bg-transparent " />
+                <div className="absolute  inset-0 bg-yellow-400/10 z-10 hover:bg-transparent " />
                 <img
-                  className="object-contain"
+                  className="object-contain h-full w-full"
                   src={project.img}
                   alt={`${project.img} project`}
                 />
@@ -234,6 +232,10 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {/* make this button in the right */}
+          <button className="mt-6  text-yellow-400 cursor-pointer font-bold hover:underline float-right ">
+            Voir tous les projets &gt;
+          </button>
         </div>
       </section>
 
