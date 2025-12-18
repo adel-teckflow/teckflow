@@ -114,7 +114,7 @@ export default function Home() {
             LOCATED IN <span className=" text-yellow-400">ALGERIA </span>
           </h2>
           <div className="flex  items-center">
-            <div className=" p-8 rounded-xl bg-blue-950 relative lg:min-w-[85%] ">
+            <div className="flex md:block md:flex-row  flex-col p-8 rounded-xl bg-blue-950 relative lg:min-w-[85%] ">
               <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full top-0 left-1  blur-lg " />
               <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full bottom-0 right-1  blur-lg " />
               <p className="text-lg text-white  mb-4 leading-relaxed z-10 lg:max-w-lg">
@@ -131,7 +131,7 @@ export default function Home() {
               <img
                 src="/agency-yellow.png"
                 alt="teckflow agency"
-                className="object-contain absolute -top-20 -right-16 lg:size-96"
+                className="object-contain lg:absolute -top-20 -right-16 lg:size-96"
               />
             </div>
           </div>
