@@ -24,11 +24,23 @@ const TESTIMONIALS = [
 
 const PORTFOLIO = [
   { title: "E-Commerce Platform", category: "Web Dev", img: "/e-commerce.png" },
-  { title: "Mobile Banking App", category: "Mobile App", img: "mobileApp.png" },
-  { title: "AI Chatbot System", category: "AI Integration", img: "chatbot.png" },
-  { title: "SaaS Dashboard", category: "Web Dev", img: "sass-dash.png" },
+  {
+    title: "Mobile Banking App",
+    category: "Mobile App",
+    img: "mobile-app.png",
+  },
+  {
+    title: "AI Chatbot System",
+    category: "AI Integration",
+    img: "chatbot.png",
+  },
+  { title: "SaaS Dashboard", category: "Web Dev", img: "dashboard.png" },
   { title: "AR Product Viewer", category: "Innovation", img: "ar-viewer.png" },
-  { title: "Video Marketing Suite", category: "Video", img: "video-marketing.png" },
+  {
+    title: "Video Marketing Suite",
+    category: "Video",
+    img: "video-marketing.png",
+  },
 ]
 
 export default function Home() {
@@ -199,19 +211,24 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-5xl font-black text-center mb-16">
-           <span className="text-yellow-400 font-bold">PORT</span>FOLIO
+            <span className="text-yellow-400 font-bold">PORT</span>FOLIO
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {PORTFOLIO.map((project, i) => (
               <div
                 key={i}
-                className="neon-card rounded-xl flex flex-col items-center justify-center h-48 hover:-translate-y-4 transition-all duration-300 group cursor-pointer"
+                className="neon-card relative rounded-xl flex flex-col items-center justify-center h-48 hover:-translate-y-4 transition-all duration-300 group cursor-pointer"
               >
-                <img className="object-contain" src={project.img} alt={`${project.img} project`} />
-                <h3 className="text-lg font-bold text-[#7BA3C0] text-center">
+                <div className="absolute  inset-0 bg-black/35 z-10 hover:bg-transparent " />
+                <img
+                  className="object-contain"
+                  src={project.img}
+                  alt={`${project.img} project`}
+                />
+                <h3 className="text-lg font-bold text-yellow-400 px-2 py-1 bg-black/50 rounded-xl text-center absolute bottom-6 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.title}
                 </h3>
-                <p className="text-xs text-[#A899C9] mt-2">
+                <p className="text-xs text-black mt-2 font-semibold absolute bottom-1 bg-white/40 px-2 rounded-full z-0 opacity-0 group-hover:opacity-100">
                   {project.category}
                 </p>
               </div>
