@@ -115,12 +115,12 @@ export default function MessengerBot() {
         className={`fixed bottom-8 right-8 z-40 w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl transition-all duration-300 ${
           open
             ? "neon-button"
-            : "bg-gradient-to-br from-[#00d4ff] to-[#ffcf33] hover:scale-110 shadow-lg"
+            : "bg-gradient-to-br from-[#7BA3C0] to-[#A899C9] hover:scale-110 shadow-lg"
         }`}
         style={{
           boxShadow: open
-            ? "0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(255, 207, 51, 0.4)"
-            : "0 0 20px rgba(0, 212, 255, 0.4)",
+            ? "0 8px 20px rgba(123, 163, 192, 0.3)"
+            : "0 4px 12px rgba(123, 163, 192, 0.2)",
         }}
       >
         💬
@@ -129,28 +129,27 @@ export default function MessengerBot() {
       {/* Chat Window */}
       {open && (
         <div
-          className="fixed bottom-24 right-8 w-96 h-96 bg-[#0a0e27] border-2 border-[#00d4ff] rounded-xl shadow-2xl flex flex-col z-40 overflow-hidden animate-slide-in-right"
+          className="fixed bottom-24 right-8 w-96 h-96 bg-white border border-[#E8E8E8] rounded-xl shadow-2xl flex flex-col z-40 overflow-hidden animate-slide-in-right"
           style={{
-            boxShadow:
-              "0 0 30px rgba(0, 212, 255, 0.5), inset 0 0 20px rgba(0, 212, 255, 0.05)",
+            boxShadow: "0 12px 24px rgba(0, 0, 0, 0.1)",
           }}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#00d4ff]/20 to-[#ffcf33]/20 border-b border-[#00d4ff] p-4 flex justify-between items-center">
+          <div className="bg-gradient-to-r from-[#C8E1F5] to-[#B8E0D2] border-b border-[#E8E8E8] p-4 flex justify-between items-center">
             <div>
-              <h3 className="font-bold text-[#00d4ff] animate-neon">TeckBot</h3>
-              <p className="text-xs text-[#00d4ff]/70">Always online</p>
+              <h3 className="font-bold text-[#3D3D3D]">TeckBot</h3>
+              <p className="text-xs text-[#6B6B6B]">Always online</p>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="text-[#00d4ff] hover:text-[#ffcf33] transition"
+              className="text-[#3D3D3D] hover:text-[#7BA3C0] transition"
             >
               ✕
             </button>
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0a0e27]">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -161,8 +160,8 @@ export default function MessengerBot() {
                 <div
                   className={`px-4 py-2 rounded-lg max-w-xs text-sm ${
                     msg.sender === "user"
-                      ? "bg-[#00d4ff]/20 text-[#00d4ff] border border-[#00d4ff]"
-                      : "bg-[#ffcf33]/15 text-white border border-[#ffcf33]"
+                      ? "bg-[#7BA3C0]/15 text-[#3D3D3D] border border-[#7BA3C0]"
+                      : "bg-[#E8B8D8]/15 text-[#3D3D3D] border border-[#E8B8D8]"
                   }`}
                 >
                   {msg.text}
@@ -174,16 +173,14 @@ export default function MessengerBot() {
 
           {/* Quick Questions (First 3) */}
           {messages.length <= 2 && (
-            <div className="px-3 py-2 border-t border-[#00d4ff]/20 bg-[#0f1535] max-h-20 overflow-y-auto">
-              <p className="text-xs text-[#00d4ff] mb-2 opacity-70">
-                Quick answers:
-              </p>
+            <div className="px-3 py-2 border-t border-[#E8E8E8] bg-[#FAFAF8] max-h-20 overflow-y-auto">
+              <p className="text-xs text-[#6B6B6B] mb-2">Quick answers:</p>
               <div className="space-y-1">
                 {FAQ_DATA.slice(0, 3).map((qa) => (
                   <button
                     key={qa.id}
                     onClick={() => handleQuickQuestion(qa)}
-                    className="w-full text-left text-xs px-2 py-1 rounded border border-[#ffcf33]/30 text-[#ffcf33] hover:bg-[#ffcf33]/10 transition truncate"
+                    className="w-full text-left text-xs px-2 py-1 rounded border border-[#C8E1F5] text-[#7BA3C0] hover:bg-[#C8E1F5]/20 transition truncate"
                   >
                     {qa.question}
                   </button>
@@ -193,14 +190,14 @@ export default function MessengerBot() {
           )}
 
           {/* Input */}
-          <div className="border-t border-[#00d4ff] p-3 flex gap-2 bg-[#0f1535]">
+          <div className="border-t border-[#E8E8E8] p-3 flex gap-2 bg-white">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSendMessage(input)}
               placeholder="Ask me anything..."
-              className="flex-1 bg-[#0a0e27] border border-[#00d4ff] rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-[#ffcf33] transition"
+              className="flex-1 bg-white border border-[#E8E8E8] rounded px-3 py-2 text-[#3D3D3D] text-sm focus:outline-none focus:border-[#7BA3C0] transition"
             />
             <button
               onClick={() => handleSendMessage(input)}

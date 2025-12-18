@@ -48,35 +48,13 @@ export default function Services() {
   const servicesRef = useScrollReveal()
 
   return (
-    <main className="bg-[#0a0e27]">
+    <main className="bg-white">
       {/* HERO SECTION */}
-      <section className="relative py-24 px-6 dark-section overflow-hidden min-h-96 flex items-center">
-        <svg
-          className="absolute inset-0 w-full h-full opacity-10"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#00d4ff"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-
+      <section className="relative py-24 px-6 bg-gradient-to-b from-[#C8E1F5] to-[#FAFAF8] overflow-hidden min-h-96 flex items-center">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#00d4ff] rounded-full blur-3xl opacity-10 animate-float"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#7BA3C0] rounded-full blur-3xl opacity-5 animate-float"></div>
           <div
-            className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#ffcf33] rounded-full blur-3xl opacity-5 animate-float"
+            className="absolute bottom-0 left-1/4 w-80 h-80 bg-[#A899C9] rounded-full blur-3xl opacity-5 animate-float"
             style={{ animationDelay: "2s" }}
           ></div>
         </div>
@@ -85,7 +63,7 @@ export default function Services() {
           <h1 className="text-6xl md:text-7xl font-black mb-6 gradient-text">
             OUR SERVICES
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-[#6B6B6B] max-w-3xl mx-auto">
             From websites to AI integration, we deliver innovative digital
             solutions that drive growth and solve real business challenges.
           </p>
@@ -93,7 +71,7 @@ export default function Services() {
       </section>
 
       {/* SERVICES GRID */}
-      <section ref={servicesRef} className="py-24 px-6 darker-section">
+      <section ref={servicesRef} className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service, i) => (
@@ -105,17 +83,17 @@ export default function Services() {
                 <div className="text-6xl mb-4 group-hover:scale-125 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-black text-[#00d4ff] mb-3 uppercase">
+                <h3 className="text-2xl font-black text-[#7BA3C0] mb-3 uppercase">
                   {service.title}
                 </h3>
-                <p className="text-white/80 mb-4 leading-relaxed">
+                <p className="text-[#6B6B6B] mb-4 leading-relaxed">
                   {service.desc}
                 </p>
                 <div className="space-y-2">
                   {service.details.map((detail, j) => (
                     <div
                       key={j}
-                      className="flex items-center text-sm text-[#ffcf33]"
+                      className="flex items-center text-sm text-[#A899C9]"
                     >
                       <span className="mr-2">⚡</span> {detail}
                     </div>
@@ -128,7 +106,7 @@ export default function Services() {
       </section>
 
       {/* PROCESS SECTION */}
-      <section className="py-24 px-6 dark-section relative overflow-hidden">
+      <section className="py-24 px-6 bg-gradient-to-b from-[#F5F3F0] to-[#FAFAF8] relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-5xl font-black text-center mb-16 gradient-text">
             OUR PROCESS
@@ -160,13 +138,13 @@ export default function Services() {
                 key={i}
                 className="neon-card p-6 rounded-xl text-center hover:scale-105 transition-transform"
               >
-                <div className="text-4xl font-black text-[#00d4ff] mb-2">
+                <div className="text-4xl font-black text-[#7BA3C0] mb-2">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-bold text-[#ffcf33] mb-2 uppercase">
+                <h3 className="text-lg font-bold text-[#A899C9] mb-2 uppercase">
                   {item.title}
                 </h3>
-                <p className="text-sm text-white/70">{item.desc}</p>
+                <p className="text-sm text-[#6B6B6B]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -174,12 +152,12 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 darker-section relative">
+      <section className="py-24 px-6 bg-gradient-to-b from-[#C8E1F5] to-[#B8E0D2] relative">
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-5xl font-black mb-6 gradient-text">
             READY TO BUILD?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-[#3D3D3D] mb-8">
             Choose your service and let's create something incredible.
           </p>
           <button className="neon-button px-10 py-4 rounded-lg text-lg">

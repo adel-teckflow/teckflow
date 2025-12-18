@@ -6,20 +6,21 @@ export default function Navbar() {
 
   const activeClass = ({ isActive }) =>
     isActive
-      ? "font-bold text-[#00d4ff] underline decoration-2"
-      : "text-white/90 hover:text-[#00d4ff]"
+      ? "font-bold text-yellow-400  decoration-2"
+      : "text-[#6B6B6B] hover:text-[#7BA3C0]"
 
   return (
     <header
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-md"
-      style={{ boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
+      className="fixed top-0 left-0 w-full z-50 bg-white"
+      style={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.06)" }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link
           to="/"
-          className="text-3xl font-black text-[#ffcf33] hover:text-[#00d4ff] transition-colors drop-shadow-lg"
+          className="text-3xl font-black"
         >
-          TECKFLOW
+         {/* <span className="text-yellow-400 text-5xl">T</span>ECKFLOW */} 
+         <img src="/teckflow-black.png" alt="teckflow logo" className="h-16" />
         </Link>
 
         {/* Desktop Menu */}
@@ -30,7 +31,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `font-semibold transition-all ${activeClass({
                 isActive,
-              })} hover:drop-shadow-lg`
+              })}`
             }
           >
             HOME
@@ -40,14 +41,14 @@ export default function Navbar() {
             className={({ isActive }) =>
               `font-semibold transition-all ${activeClass({
                 isActive,
-              })} hover:drop-shadow-lg`
+              })}`
             }
           >
             SERVICES
           </NavLink>
           <a
             href="/#about"
-            className="font-semibold text-white/90 hover:text-[#00d4ff] transition-all hover:drop-shadow-lg"
+            className="font-semibold text-[#6B6B6B] hover:text-[#7BA3C0] transition-all"
           >
             ABOUT
           </a>
@@ -56,7 +57,7 @@ export default function Navbar() {
             className={({ isActive }) =>
               `font-semibold transition-all ${activeClass({
                 isActive,
-              })} hover:drop-shadow-lg`
+              })}`
             }
           >
             CONTACT
@@ -65,7 +66,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden bg-transparent border-0 text-[#00d4ff] hover:text-[#ffcf33] transition-all"
+          className="md:hidden bg-transparent border-0 text-[#7BA3C0] hover:text-[#A899C9] transition-all"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -84,7 +85,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-gradient-to-b from-[#072a4f] to-[#04203f] border-t border-[#00d4ff] overflow-hidden transition-all duration-300 ${
+        className={`md:hidden bg-gradient-to-b from-[#FAFAF8] to-[#C8E1F5] border-t border-[#E8E8E8] overflow-hidden transition-all duration-300 ${
           open ? "max-h-80" : "max-h-0"
         }`}
       >
@@ -111,7 +112,7 @@ export default function Navbar() {
           <a
             href="/#about"
             onClick={() => setOpen(false)}
-            className="font-semibold text-white/90 hover:text-[#00d4ff] transition-all"
+            className="font-semibold text-[#6B6B6B] hover:text-[#7BA3C0] transition-all"
           >
             ABOUT
           </a>

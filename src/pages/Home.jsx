@@ -23,12 +23,12 @@ const TESTIMONIALS = [
 ]
 
 const PORTFOLIO = [
-  { title: "E-Commerce Platform", category: "Web Dev", img: "🛒" },
-  { title: "Mobile Banking App", category: "Mobile App", img: "📱" },
-  { title: "AI Chatbot System", category: "AI Integration", img: "🤖" },
-  { title: "SaaS Dashboard", category: "Web Dev", img: "📊" },
-  { title: "AR Product Viewer", category: "Innovation", img: "🔮" },
-  { title: "Video Marketing Suite", category: "Video", img: "🎥" },
+  { title: "E-Commerce Platform", category: "Web Dev", img: "/e-commerce.png" },
+  { title: "Mobile Banking App", category: "Mobile App", img: "mobileApp.png" },
+  { title: "AI Chatbot System", category: "AI Integration", img: "chatbot.png" },
+  { title: "SaaS Dashboard", category: "Web Dev", img: "sass-dash.png" },
+  { title: "AR Product Viewer", category: "Innovation", img: "ar-viewer.png" },
+  { title: "Video Marketing Suite", category: "Video", img: "video-marketing.png" },
 ]
 
 export default function Home() {
@@ -43,55 +43,28 @@ export default function Home() {
       {/* HERO SECTION */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden dark-section"
+        className="relative min-h-screen  flex items-center justify-center overflow-hidden bg-linear-to-b from-yellow-300 to-[#FAFAF8]"
       >
-        {/* Grid Background SVG */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-10"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#00d4ff"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-
-        {/* Animated Neon Circles */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-[#00d4ff] rounded-full blur-3xl opacity-10 animate-float"></div>
-          <div
-            className="absolute bottom-20 right-10 w-80 h-80 bg-[#ffcf33] rounded-full blur-3xl opacity-10 animate-float"
-            style={{ animationDelay: "2s" }}
-          ></div>
-        </div>
+        {/* Animated Pastel Circles */}
+        <div className="decorative-background" />
 
         <div className="relative max-w-4xl text-center px-6 pt-20 z-10">
-          <h1 className="text-6xl md:text-8xl font-black text-white mb-6 leading-tight animate-fade-in">
-            <span className="gradient-text">SMART SOFTWARE</span>
+          <h1 className="text-6xl md:text-8xl font-black text-blue-900 mb-6 leading-tight animate-fade-in">
+            <span className="text-blue-950">SMART SOFTWARE </span>
             <br />
-            <span className="text-[#00d4ff]">REAL SOLUTIONS</span>
+            <span className="text-[#f1cd00] border-b border-black lg:pb-2">
+              REAL SOLUTIONS
+            </span>
           </h1>
           <p
-            className="text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in-up"
+            className="text-xl text-[#6B6B6B] mb-8 max-w-2xl mx-auto animate-fade-in-up"
             style={{ animationDelay: "200ms" }}
           >
             At TeckFlow, we turn ideas into impact — blending technology and
             creativity to craft powerful software and smart solutions.
           </p>
           <button
-            className="neon-button px-8 py-4 rounded-lg text-lg animate-fade-in-up"
+            className="bg-blue-950 text-yellow-400 px-8 font-bold cursor-pointer hover:bg-yellow-400 hover:text-blue-950 transition-colors duration-500 py-4 rounded-lg text-lg animate-fade-in-up"
             style={{ animationDelay: "400ms" }}
           >
             LAUNCH YOUR PROJECT
@@ -99,54 +72,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* <section className="bg-black">
+        <select name="tecks" id="">
+          <optgroup name="advanced" label="advanced prog language">
+            <option value="">React</option>
+            <option value="">Vue.js</option>
+            <option value="">Nuxt</option>
+            <option value="">Astro</option>
+          </optgroup>
+          <optgroup name="basics" label="basics prog language">
+            <option value="">html</option>
+            <option value="">css</option>
+            <option value="">javascript es6+</option>
+            <option value="">php</option>
+          </optgroup>
+        </select>
+      </section> */}
+
       {/* ABOUT SECTION */}
       <section
         id="about"
         ref={aboutRef}
-        className="py-24 px-6 dark-section relative overflow-hidden"
+        className="py-24 px-6 bg-white relative overflow-hidden"
       >
-        <svg
-          className="absolute inset-0 w-full h-full opacity-5"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-
         <div className="max-w-5xl mx-auto relative z-10">
-          <h2 className="text-5xl font-black text-center mb-16 gradient-text">
+          <h2 className="text-5xl text-blue-950 font-black text-center mb-16 ">
             CREATIVE AGENCY
             <br />
-            LOCATED IN ALGERIA
+            LOCATED IN <span className=" text-yellow-400">ALGERIA </span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="neon-card p-8 rounded-xl">
-              <p className="text-lg text-white/90 mb-4 leading-relaxed">
-                At TeckFlow, we craft more than just websites and apps — we
-                build powerful digital platforms and software solutions designed
-                to solve real challenges across industries.
+          <div className="grid md:grid-cols-2  gap-12 items-center">
+            <div className=" p-8 rounded-xl bg-blue-950 relative">
+              <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full top-0 left-1  blur-lg " />
+              <div className=" absolute bg-yellow-400 size-20 opacity-20 rounded-full bottom-0 right-1  blur-lg " />
+              <p className="text-lg text-white  mb-4 leading-relaxed z-10">
+                <span className="text-yellow-400">-</span> At TeckFlow, we craft
+                more than just websites and apps — we build powerful digital
+                platforms and software solutions designed to solve real
+                challenges across industries.
               </p>
-              <p className="text-lg text-white/90 leading-relaxed">
+              <p className="text-lg text-white  leading-relaxed z-10">
                 From cutting-edge, engaging websites to high-performing mobile
                 and web applications, our team delivers innovative digital
                 productions that elevate your brand and drive growth.
               </p>
             </div>
-            <div className="relative h-80 rounded-lg overflow-hidden neon-border shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/20 to-[#ffcf33]/20 animate-pulse"></div>
-              <svg
-                className="absolute inset-0 w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  width="100%"
-                  height="100%"
-                  fill="url(#grid)"
-                  opacity="0.3"
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center text-6xl">
-                🚀
-              </div>
+            <div className="relative md:h-96 rounded-lg overflow-hidden">
+              <img
+                src="/agency-yellow.png"
+                alt="teckflow agency"
+                className="object-contain"
+              />
             </div>
           </div>
         </div>
@@ -156,37 +132,43 @@ export default function Home() {
       <section
         id="features"
         ref={featuresRef}
-        className="py-24 px-6 darker-section relative"
+        className="py-24 px-6 bg-linear-to-b from-[#F5F3F0] to-[#FAFAF8] relative"
       >
         <div className="max-w-6xl mx-auto relative z-10">
-          <h2 className="text-5xl font-black text-center mb-16 gradient-text">
-            OUR SERVICES
+          <h2 className="text-5xl font-black text-center mb-16 text-blue-950">
+            OUR <span className="text-yellow-400">SERVICES</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "🌐 WEB DEVELOPMENT",
+                title: " WEB DEVELOPMENT",
                 desc: "Cutting-edge websites built for performance",
+                img: "/web-dev.png",
               },
               {
-                title: "📱 APP DEVELOPMENT",
+                title: " APP DEVELOPMENT",
                 desc: "High-performing mobile applications",
+                img: "/app-dev.png",
               },
               {
-                title: "🤖 AI INTEGRATION",
+                title: " AI INTEGRATION",
                 desc: "Smart solutions powered by AI",
+                img: "/ai-integration.png",
               },
               {
-                title: "⚙️ DIGITAL TRANSFORM",
+                title: " DIGITAL TRANSFORM",
                 desc: "Modernize your business with tech",
+                img: "/digital-transform.jpeg",
               },
               {
-                title: "🚀 MVP DEVELOPMENT",
+                title: " MVP DEVELOPMENT",
                 desc: "Rapid prototyping and MVP creation",
+                img: "/mvp.png",
               },
               {
-                title: "🎬 VIDEO PRODUCTION",
+                title: " VIDEO PRODUCTION",
                 desc: "Professional video content creation",
+                img: "/video-making.png",
               },
             ].map((service, i) => (
               <div
@@ -194,10 +176,15 @@ export default function Home() {
                 className="neon-card p-8 rounded-xl hover:scale-105 transition-transform duration-300"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <h3 className="text-2xl font-black mb-3 text-[#00d4ff]">
+                <img
+                  src={service.img}
+                  alt={service.img}
+                  className="lg:size-72 mx-auto object-contain"
+                />
+                <h3 className="text-2xl font-black mb-3 text-blue-950 text-center">
                   {service.title}
                 </h3>
-                <p className="text-white/80">{service.desc}</p>
+                <p className="text-[#6B6B6B] text-center">{service.desc}</p>
               </div>
             ))}
           </div>
@@ -208,25 +195,23 @@ export default function Home() {
       <section
         id="portfolio"
         ref={portfolioRef}
-        className="py-24 px-6 dark-section relative overflow-hidden"
+        className="py-24 px-6 bg-white relative overflow-hidden"
       >
         <div className="max-w-6xl mx-auto relative z-10">
-          <h2 className="text-5xl font-black text-center mb-16 gradient-text">
-            PORTFOLIO
+          <h2 className="text-5xl font-black text-center mb-16">
+           <span className="text-yellow-400 font-bold">PORT</span>FOLIO
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {PORTFOLIO.map((project, i) => (
               <div
                 key={i}
-                className="neon-card p-8 rounded-xl flex flex-col items-center justify-center h-48 hover:-translate-y-4 transition-all duration-300 group cursor-pointer"
+                className="neon-card rounded-xl flex flex-col items-center justify-center h-48 hover:-translate-y-4 transition-all duration-300 group cursor-pointer"
               >
-                <div className="text-6xl mb-4 group-hover:scale-125 transition-transform">
-                  {project.img}
-                </div>
-                <h3 className="text-lg font-bold text-[#00d4ff] text-center">
+                <img className="object-contain" src={project.img} alt={`${project.img} project`} />
+                <h3 className="text-lg font-bold text-[#7BA3C0] text-center">
                   {project.title}
                 </h3>
-                <p className="text-xs text-[#ffcf33] mt-2">
+                <p className="text-xs text-[#A899C9] mt-2">
                   {project.category}
                 </p>
               </div>
@@ -238,7 +223,7 @@ export default function Home() {
       {/* TESTIMONIALS SECTION */}
       <section
         ref={testimonialsRef}
-        className="py-24 px-6 darker-section relative"
+        className="py-24 px-6 bg-gradient-to-b from-[#F5F3F0] to-[#FAFAF8] relative"
       >
         <div className="max-w-5xl mx-auto relative z-10">
           <h2 className="text-5xl font-black text-center mb-16 gradient-text">
@@ -253,13 +238,13 @@ export default function Home() {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-4xl">{testimonial.avatar}</div>
                   <div>
-                    <h4 className="font-bold text-[#00d4ff]">
+                    <h4 className="font-bold text-[#7BA3C0]">
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs text-[#ffcf33]">{testimonial.role}</p>
+                    <p className="text-xs text-[#A899C9]">{testimonial.role}</p>
                   </div>
                 </div>
-                <p className="text-white/80 italic">"{testimonial.text}"</p>
+                <p className="text-[#6B6B6B] italic">"{testimonial.text}"</p>
               </div>
             ))}
           </div>
@@ -267,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US SECTION */}
-      <section ref={whyRef} className="py-24 px-6 dark-section relative">
+      <section ref={whyRef} className="py-24 px-6 bg-white relative">
         <div className="max-w-5xl mx-auto relative z-10">
           <h2 className="text-5xl font-black text-center mb-16 gradient-text">
             WHY CHOOSE US
@@ -288,13 +273,13 @@ export default function Home() {
               },
             ].map((item, i) => (
               <div key={i} className="text-center">
-                <div className="w-24 h-24 rounded-full neon-border mx-auto mb-4 flex items-center justify-center text-4xl hover:scale-110 transition-transform">
+                <div className="w-24 h-24 rounded-full border-2 border-[#7BA3C0] mx-auto mb-4 flex items-center justify-center text-4xl hover:scale-110 transition-transform bg-gradient-to-br from-[#C8E1F5] to-[#B8E0D2]">
                   {item.title.charAt(0)}
                 </div>
-                <h3 className="text-2xl font-black text-[#00d4ff] mb-2 uppercase">
+                <h3 className="text-2xl font-black text-[#7BA3C0] mb-2 uppercase">
                   {item.title.split(" ").slice(1).join(" ")}
                 </h3>
-                <p className="text-white/80">{item.desc}</p>
+                <p className="text-[#6B6B6B]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -302,15 +287,15 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-24 px-6 dark-section relative overflow-hidden">
+      <section className="py-24 px-6 bg-gradient-to-b from-[#C8E1F5] to-[#B8E0D2] relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#00d4ff] rounded-full blur-3xl opacity-5 transform -translate-x-1/2 animate-float"></div>
+          <div className="absolute top-0 left-1/2 w-96 h-96 bg-[#7BA3C0] rounded-full blur-3xl opacity-5 transform -translate-x-1/2 animate-float"></div>
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <h2 className="text-5xl font-black mb-6 gradient-text">
             READY TO TRANSFORM?
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-[#3D3D3D] mb-8">
             Let's build something amazing together.
           </p>
           <button className="neon-button px-10 py-4 rounded-lg text-lg">
