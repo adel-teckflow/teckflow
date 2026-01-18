@@ -8,9 +8,8 @@ const CircuitBackground = ({ className = '' }: { className?: string }) => {
   useGSAP(() => {
     if (!svgRef.current) return
 
+    // Initial state
     const paths = svgRef.current.querySelectorAll('.circuit-path')
-    
-    // Set initial stroke-dasharray/offset
     paths.forEach((path) => {
       const length = (path as SVGPathElement).getTotalLength()
       gsap.set(path, {
@@ -20,26 +19,53 @@ const CircuitBackground = ({ className = '' }: { className?: string }) => {
       })
     })
 
-    // Animate paths
-    gsap.to(paths, {
-      strokeDashoffset: 0,
-      duration: 3,
-      stagger: {
-        amount: 2,
-        from: 'random'
-      },
-      ease: 'power2.inOut',
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 1
+    // Animate paths on SCROLL (draw them in)
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: svgRef.current,
+            start: "top center",
+            end: "bottom center",
+            scrub: 1, // Link to scroll
+        }
     })
 
-    // Add pulse effect to circles
+    tl.to(paths, {
+      strokeDashoffset: 0,
+      stagger: 0.1,
+      ease: 'none',
+    })
+
+    // Mouse Parallax Effect
+    const handleMouseMove = (e: MouseEvent) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20
+        const y = (e.clientY / window.innerHeight - 0.5) * 20
+        
+        gsap.to(paths, {
+            x: x,
+            y: y,
+            duration: 1,
+            ease: 'power2.out'
+        })
+        
+        const nodes = svgRef.current?.querySelectorAll('.node')
+        if(nodes) {
+             gsap.to(nodes, {
+                x: -x * 2,
+                y: -y * 2,
+                duration: 1.5,
+                ease: 'power2.out'
+            })
+        }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+
+    // Keep the pulse effect for nodes
     const circles = svgRef.current.querySelectorAll('.node')
     gsap.to(circles, {
       scale: 1.5,
-      opacity: 0.8,
-      duration: 2,
+      opacity: 1,
+      duration: 1.5,
       stagger: {
         amount: 2,
         from: 'random'
@@ -48,7 +74,11 @@ const CircuitBackground = ({ className = '' }: { className?: string }) => {
       repeat: -1,
       yoyo: true
     })
-
+    
+    return () => {
+        window.removeEventListener('mousemove', handleMouseMove)
+        tl.kill()
+    }
   }, [])
 
   return (

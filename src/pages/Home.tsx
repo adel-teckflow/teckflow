@@ -4,7 +4,9 @@ import ServicesSection from '../components/home/ServicesSection'
 import Footer from '../components/home/Footer'
 import Marquee from '../components/common/Marquee'
 import NavbarTeckflow from '../components/common/NavbarTeckflow' 
+import ScrollFlow from '../components/animations/ScrollFlow'
 import { useEffect } from 'react'
+
 
 // Déclaration pour lucide
 declare global {
@@ -26,8 +28,9 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="antialiased bg-black text-gray-200 min-h-screen">
+    <div className="antialiased bg-black text-gray-200 min-h-screen relative">
       <div className="noise-overlay"></div>
+      <ScrollFlow />
       <NavbarTeckflow />
       <Hero />
       <Marquee />
