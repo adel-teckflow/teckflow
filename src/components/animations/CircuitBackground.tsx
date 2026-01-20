@@ -23,9 +23,9 @@ const CircuitBackground = ({ className = '' }: { className?: string }) => {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: svgRef.current,
-            start: "top center",
-            end: "bottom center",
-            scrub: 1, // Link to scroll
+            start: "top 85%", // Starts earlier when entering viewport
+            end: "bottom top", // Ends when leaving viewport
+            scrub: 2, // Smooth scrubbing (less sensitive)
         }
     })
 

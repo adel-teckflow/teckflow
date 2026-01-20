@@ -10,7 +10,7 @@ export const useGSAP = (
   callback: (context: gsap.Context) => void | (() => void),
   deps: DependencyList = []
 ) => {
-  const contextRef = useRef<gsap.Context>()
+  const contextRef = useRef<gsap.Context | null>(null)
 
   useEffect(() => {
     // Create GSAP context
