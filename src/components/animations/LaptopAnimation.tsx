@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '../../hooks/useGSAP'
 import { gsap } from '../../utils/gsapConfig'
+import LaptopModal from './LaptopModal'
 
 const LaptopAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   
   // Total number of frames
   const frameCount = 81
@@ -117,17 +119,32 @@ const LaptopAnimation = () => {
   }, [imagesLoaded])
 
   return (
-    <div className="relative w-full aspect-video flex items-center justify-center">
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center text-cyan-500 font-mono text-xs">
-          LOADING SEQUENCE...
+    <>
+      <LaptopModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      
+      <div 
+        className="relative w-full aspect-video flex items-center justify-center cursor-pointer group"
+        onClick={() => setIsModalOpen(true)}
+      >
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center text-cyan-500 font-mono text-xs">
+            LOADING SEQUENCE...
+          </div>
+        )}
+        
+        {/* Hover indication */}
+        <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-center justify-center">
+           <div className="bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10 text-white text-xs font-mono tracking-widest uppercase">
+              Click to Explore
+           </div>
         </div>
-      )}
-      <canvas 
-        ref={canvasRef}
-        className="block max-w-full h-auto"
-      />
-    </div>
+
+        <canvas 
+          ref={canvasRef}
+          className="block max-w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+      </div>
+    </>
   )
 }
 
