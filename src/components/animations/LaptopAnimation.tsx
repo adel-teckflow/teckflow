@@ -36,6 +36,15 @@ const LaptopAnimation = () => {
           setIsLoading(false)
         }
       }
+
+      img.onerror = () => {
+        console.warn(`Failed to load image: ${img.src}`)
+        loadedCount++
+        if (loadedCount === frameCount + 1) {
+          setImagesLoaded(true)
+          setIsLoading(false)
+        }
+      }
       
       images.push(img)
     }
@@ -49,16 +58,30 @@ const LaptopAnimation = () => {
     const context = canvas?.getContext('2d')
     const img = imagesRef.current[index]
 
-    if (canvas && context && img) {
+    if (canvas && context) {
       // Clear canvas
       context.clearRect(0, 0, canvas.width, canvas.height)
       
-      // Draw image fit to canvas/contain
-      const scale = Math.min(canvas.width / img.width, canvas.height / img.height)
-      const x = (canvas.width / 2) - (img.width / 2) * scale
-      const y = (canvas.height / 2) - (img.height / 2) * scale
+      // Fallback logic for missing frames
+      let validImg = img
+      if (!validImg || validImg.naturalWidth === 0) {
+          // Try to find the nearest previous valid frame
+          for (let i = index - 1; i >= 0; i--) {
+              if (imagesRef.current[i] && imagesRef.current[i].naturalWidth > 0) {
+                  validImg = imagesRef.current[i]
+                  break
+              }
+          }
+      }
       
-      context.drawImage(img, x, y, img.width * scale, img.height * scale)
+      if (validImg && validImg.naturalWidth > 0) {
+          // Draw image fit to canvas/contain
+          const scale = Math.min(canvas.width / validImg.width, canvas.height / validImg.height)
+          const x = (canvas.width / 2) - (validImg.width / 2) * scale
+          const y = (canvas.height / 2) - (validImg.height / 2) * scale
+          
+          context.drawImage(validImg, x, y, validImg.width * scale, validImg.height * scale)
+      }
     }
   }
 
@@ -68,7 +91,6 @@ const LaptopAnimation = () => {
     // Clean initial render
     renderFrame(0)
 
-    // Setup scroll animation
     // Setup scroll animation with Timeline
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -89,9 +111,10 @@ const LaptopAnimation = () => {
       }
     }, 0)
 
-    // 2. Vertical Parallax (Move down)
+    // 2. Vertical Parallax (Move down) & Scale
     tl.to(canvasRef.current, {
-      y: 300, // Increased movement distance
+      y: 300, 
+      scale: 1.2, // Zoom effect
       ease: 'none'
     }, 0) // Sync start time with frame animation
   }, [imagesLoaded])
@@ -141,7 +164,7 @@ const LaptopAnimation = () => {
 
         <canvas 
           ref={canvasRef}
-          className="block max-w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+          className="block max-w-full h-auto"
         />
       </div>
     </>
