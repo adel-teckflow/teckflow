@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react"
 
 // ============================================
 // Component Props
@@ -17,6 +17,11 @@ export interface Work {
   id: string
   title: string
   img: string
+  category?: string
+  performance?: string
+  technologies?: string[]
+  timeline?: string
+  complexity?: string
 }
 
 export interface Service {
