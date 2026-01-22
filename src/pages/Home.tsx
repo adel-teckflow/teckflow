@@ -1,5 +1,7 @@
 import Hero from '../components/home/Hero'
 import HorizontalScrollSection from '../components/home/HorizontalScrollSection' 
+import FilmmakingSection from '../components/home/FilmmakingSection'
+import PartnersSection from '../components/home/PartnersSection'
 import ServicesSection from '../components/home/ServicesSection'
 import Footer from '../components/home/Footer'
 import Marquee from '../components/common/Marquee'
@@ -35,6 +37,8 @@ export default function Home() {
       <Hero />
       <Marquee />
       <HorizontalScrollSection />
+      <FilmmakingSection />
+      <PartnersSection />
       <ServicesSection />
       <Footer />
     </div>
