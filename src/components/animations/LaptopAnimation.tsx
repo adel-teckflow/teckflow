@@ -55,7 +55,8 @@ const LaptopAnimation = () => {
   // Render current frame to canvas
   const renderFrame = (index: number) => {
     const canvas = canvasRef.current
-    const context = canvas?.getContext('2d')
+    // Use alpha: true for transparency support
+    const context = canvas?.getContext('2d', { alpha: true })
     const img = imagesRef.current[index]
 
     if (canvas && context) {
@@ -119,26 +120,42 @@ const LaptopAnimation = () => {
     }, 0) // Sync start time with frame animation
   }, [imagesLoaded])
 
-  // Handle resize
-  useEffect(() => {
-    const handleResize = () => {
-      const canvas = canvasRef.current
-      if (canvas) {
-        const parent = canvas.parentElement
-        if (parent) {
-          canvas.width = parent.clientWidth
-          canvas.height = parent.clientWidth * (9/16) // 16:9 aspect ratio approximation
-          if (imagesLoaded) {
-             renderFrame(frameState.current.frame)
-          }
-        }
+  // Handle resize with DPR optimization
+  const updateCanvasSize = () => {
+    const canvas = canvasRef.current
+    if (canvas && canvas.parentElement) {
+      const parent = canvas.parentElement
+      // Cap DPR at 2 for performance on high-density screens (Apple Retina etc)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      
+      // Set internal resolution matches DPR
+      canvas.width = parent.clientWidth * dpr
+      canvas.height = (parent.clientWidth * (9/16)) * dpr
+      
+      // Force CSS display size
+      canvas.style.width = `${parent.clientWidth}px`
+      canvas.style.height = `${parent.clientWidth * (9/16)}px`
+      
+      // Redraw immediately
+      if (imagesLoaded) {
+          renderFrame(Math.round(frameState.current.frame))
       }
     }
+  }
 
-    window.addEventListener('resize', handleResize)
-    handleResize() // Initial sizing
+  useEffect(() => {
+    updateCanvasSize()
+    
+    // Use ResizeObserver for efficient resize handling
+    const resizeObserver = new ResizeObserver(() => {
+        window.requestAnimationFrame(() => updateCanvasSize())
+    })
+    
+    if (canvasRef.current?.parentElement) {
+        resizeObserver.observe(canvasRef.current.parentElement)
+    }
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => resizeObserver.disconnect()
   }, [imagesLoaded])
 
   return (
@@ -164,7 +181,7 @@ const LaptopAnimation = () => {
 
         <canvas 
           ref={canvasRef}
-          className="block max-w-full h-auto"
+          className="block max-w-full h-auto will-change-transform"
         />
       </div>
     </>
@@ -172,3 +189,5 @@ const LaptopAnimation = () => {
 }
 
 export default LaptopAnimation
+
+
