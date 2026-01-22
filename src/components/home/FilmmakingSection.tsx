@@ -82,7 +82,7 @@ const FilmmakingSection = () => {
           {projects.map((project, index) => (
             <div 
               key={project.id}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => { cardsRef.current[index] = el }}
               className={`flex flex-col md:flex-row gap-12 items-center ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
