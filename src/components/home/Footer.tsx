@@ -39,7 +39,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-end mt-24 text-gray-500 text-sm">
           <ScrollReveal delay={0.6}>
-            <p>{t('footer.rights')}</p>
+            <p>© {new Date().getFullYear().toString()} {t('footer.rights')}</p>
           </ScrollReveal>
           
           <div className="flex gap-6 mt-4 md:mt-0">

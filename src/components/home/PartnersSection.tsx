@@ -3,11 +3,17 @@ import { useGSAP } from '../../hooks/useGSAP'
 import { gsap } from '../../utils/gsapConfig'
 import { useTranslation } from 'react-i18next'
 
-// Mock partners list (duplicated for infinite scroll)
-const partners = [
-  'Google', 'Microsoft', 'Adobe', 'Shopify', 'Netflix', 'Spotify', 'Tesla', 'SpaceX',
-  'Google', 'Microsoft', 'Adobe', 'Shopify', 'Netflix', 'Spotify', 'Tesla', 'SpaceX'
+// Partners list
+const partnersData = [
+  { name: "taslim", href: "https://taslim.dz" },
+  { name: "master focus", href: "https://masterfocus.dz" },
+  { name: "kulyx", href: "https://kulyx.com" },
+  { name: "packflow", href: "https://packflow.dz" },
+  { name: "idhyha", href: "https://www.idhyha.com/" }
 ]
+
+// Duplicate partners multiple times for infinite scroll effect
+const partners = [...partnersData, ...partnersData, ...partnersData, ...partnersData]
 
 const PartnersSection = () => {
   const { t } = useTranslation()
@@ -17,13 +23,13 @@ const PartnersSection = () => {
     if (!trackRef.current) return
 
     const track = trackRef.current
-    const trackWidth = track.scrollWidth / 2 // We have duplicated content, so loop half
+    const trackWidth = track.scrollWidth / 2 // Loop when half of content scrolls (because we have duplicates)
 
     // Infinite marquee animation
     const tl = gsap.to(track, {
-      x: -trackWidth, 
+      x: -trackWidth,
       ease: 'none',
-      duration: 20, // Adjust speed
+      duration: 30, // Slower for better readability
       repeat: -1,
     })
 
@@ -47,19 +53,19 @@ const PartnersSection = () => {
         <div className="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
-        <div 
+        <div
           ref={trackRef}
           className="flex items-center gap-16 md:gap-32 w-max px-10 will-change-transform"
         >
           {partners.map((partner, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="group flex flex-col items-center justify-center gap-4 cursor-pointer opacity-50 hover:opacity-100 transition-opacity duration-300"
             >
               {/* Placeholder Logo */}
-              <div className="text-3xl md:text-5xl font-bold font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 group-hover:from-white group-hover:to-white transition-all">
-                {partner}
-              </div>
+              <a href={partner.href} target="_blank" rel="noopener noreferrer" className="text-3xl md:text-5xl font-bold font-display text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 group-hover:from-white group-hover:to-white transition-all">
+                {partner.name}
+              </a>
             </div>
           ))}
         </div>
