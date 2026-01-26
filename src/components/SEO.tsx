@@ -1,45 +1,68 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react'
 
 interface SEOProps {
-  title: string;
-  description: string;
-  image?: string;
-  url?: string;
-  type?: string;
+  title: string
+  description: string
+  image?: string
+  url?: string
+  type?: string
 }
 
-const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
-  image = '/og-image.jpg', // Default image (ensure this exists in public or update path)
-  url = window.location.href, 
-  type = 'website' 
+const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  image = '/og-image.jpg',
+  url = typeof window !== 'undefined' ? window.location.href : '',
+  type = 'website'
 }) => {
-  const siteTitle = 'Teckflow | Design Immersif';
+  const siteTitle = 'Teckflow | Design Immersif'
+  const fullTitle = `${title} | ${siteTitle}`
 
-  return (
-    <Helmet>
-      {/* Standard Metadata */}
-      <title>{`${title} | ${siteTitle}`}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+  useEffect(() => {
+    // Update document title
+    document.title = fullTitle
 
-      {/* Open Graph / Facebook */}
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+    // Update or create meta tags
+    const updateMetaTag = (name: string, content: string, isProperty = false) => {
+      const attribute = isProperty ? 'property' : 'name'
+      let element = document.querySelector(`meta[${attribute}="${name}"]`) as HTMLMetaElement
 
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
-    </Helmet>
-  );
-};
+      if (!element) {
+        element = document.createElement('meta')
+        element.setAttribute(attribute, name)
+        document.head.appendChild(element)
+      }
+      element.content = content
+    }
 
-export default SEO;
+    // Standard meta tags
+    updateMetaTag('description', description)
+
+    // Open Graph tags
+    updateMetaTag('og:type', type, true)
+    updateMetaTag('og:url', url, true)
+    updateMetaTag('og:title', title, true)
+    updateMetaTag('og:description', description, true)
+    updateMetaTag('og:image', image, true)
+
+    // Twitter tags
+    updateMetaTag('twitter:card', 'summary_large_image', true)
+    updateMetaTag('twitter:url', url, true)
+    updateMetaTag('twitter:title', title, true)
+    updateMetaTag('twitter:description', description, true)
+    updateMetaTag('twitter:image', image, true)
+
+    // Update canonical link
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.appendChild(canonical)
+    }
+    canonical.href = url
+  }, [title, description, image, url, type, fullTitle])
+
+  return null
+}
+
+export default SEO
