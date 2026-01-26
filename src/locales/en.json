@@ -1,0 +1,136 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Index",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "Digital Experience v2.0",
+    "title_primary": "FUTURE",
+    "title_secondary": "AESTHETIC",
+    "description": "We create digital spaces where form meets function in organized chaos.",
+    "cta_explore": "Explore",
+    "cta_showreel": "Showreel",
+    "scroll_1": "SCROLL",
+    "scroll_2": "DOWN"
+  },
+  "services": {
+    "heading": "Our",
+    "heading_stroke": "Services",
+    "creative_dev": "Creative Development",
+    "creative_dev_desc": "WebGL, Three.js, React. We push the boundaries of the browser to create smooth and memorable experiences.",
+    "ui_design": "UI/UX Design",
+    "ui_design_desc": "User-centered interfaces with radical aesthetics.",
+    "3d_motion": "3D & Motion",
+    "3d_motion_desc": "Smooth animation and 3D assets for maximum visual impact."
+  },
+  "partners": {
+    "heading": "Trusted By Industry Leaders"
+  },
+  "filmmaking": {
+    "title_1": "FILM",
+    "title_2": "PRODUCTION",
+    "description": "Cinematic storytelling crafted with precision. From concept to final cut, we deliver visual masterpieces.",
+    "watch_preview": "Watch Preview",
+    "view_case_study": "View Case Study",
+    "projects": {
+      "neon_nights": {
+        "title": "Neon Nights",
+        "category": "Music Video",
+        "description": "A cyberpunk odyssey featured in Rolling Stone."
+      },
+      "velocity": {
+        "title": "Velocity",
+        "category": "Commercial",
+        "description": "High-octane automotive commercial for Porsche."
+      },
+      "echoes": {
+        "title": "Echoes",
+        "category": "Short Film",
+        "description": "Sci-fi thriller about memory reconstruction."
+      }
+    }
+  },
+  "footer": {
+    "cta_line1": "Let's Talk",
+    "cta_line2": "Project?",
+    "rights": "© 2024 Teckflow. All rights reserved."
+  },
+  "contact": {
+    "hero_tag": "Let's talk about your project",
+    "hero_title_1": "CONTACT",
+    "hero_title_2": "US",
+    "hero_description": "Ready to turn your ideas into reality? Contact us today to discuss your vision.",
+    "info_heading": "CONTACT",
+    "info_heading_highlight": "INFORMATION",
+    "address_label": "Address",
+    "phone_label": "Phone",
+    "email_label": "Email",
+    "form_heading": "SEND A",
+    "form_heading_highlight": "MESSAGE",
+    "form_name": "Name",
+    "form_name_placeholder": "Your name",
+    "form_email": "Email",
+    "form_email_placeholder": "you@example.com",
+    "form_message": "Message",
+    "form_message_placeholder": "Tell us about your project...",
+    "form_submit": "Send Message",
+    "form_sending": "Sending...",
+    "form_sent": "Message Sent!",
+    "social_heading": "Follow Us"
+  },
+  "services_page": {
+    "hero_tag": "Our Expertise",
+    "hero_title_1": "OUR",
+    "hero_title_2": "SERVICES",
+    "hero_description": "From web development to AI integration, we deliver innovative digital solutions that drive growth.",
+    "web_dev_title": "Web Development",
+    "web_dev_desc": "High-performance engaging websites, optimized for user experience.",
+    "web_dev_detail1": "Responsive Design",
+    "web_dev_detail2": "SEO Optimized",
+    "web_dev_detail3": "High Performance",
+    "app_dev_title": "App Development",
+    "app_dev_desc": "High-performance iOS, Android and cross-platform mobile applications.",
+    "app_dev_detail1": "Native & Cross-Platform",
+    "app_dev_detail2": "App Store Ready",
+    "app_dev_detail3": "Cloud Integration",
+    "ai_title": "AI Integration",
+    "ai_desc": "Intelligent solutions powered by AI and machine learning.",
+    "ai_detail1": "Machine Learning",
+    "ai_detail2": "NLP Solutions",
+    "ai_detail3": "Predictive Analytics",
+    "digital_transform_title": "Digital Transformation",
+    "digital_transform_desc": "Modernize your business with cutting-edge technology solutions.",
+    "digital_transform_detail1": "Process Automation",
+    "digital_transform_detail2": "Cloud Migration",
+    "digital_transform_detail3": "Data Analytics",
+    "mvp_title": "MVP Development",
+    "mvp_desc": "Rapid prototyping and creation of minimum viable products.",
+    "mvp_detail1": "Fast Development",
+    "mvp_detail2": "Scalable Architecture",
+    "mvp_detail3": "Market Ready",
+    "video_title": "Video Production",
+    "video_desc": "Professional video content, editing and aerial cinematography.",
+    "video_detail1": "4K Recording",
+    "video_detail2": "Professional Editing",
+    "video_detail3": "Drone Footage",
+    "process_heading": "OUR",
+    "process_heading_stroke": "PROCESS",
+    "process_step1_title": "DISCOVERY",
+    "process_step1_desc": "Understanding your goals and vision",
+    "process_step2_title": "PLANNING",
+    "process_step2_desc": "Creating a detailed roadmap",
+    "process_step3_title": "EXECUTION",
+    "process_step3_desc": "Building with precision and care",
+    "process_step4_title": "LAUNCH",
+    "process_step4_desc": "Deploy and celebrate success",
+    "cta_title": "READY TO BUILD?",
+    "cta_description": "Choose your service and let's create something amazing together.",
+    "cta_button": "Contact Us"
+  }
+}

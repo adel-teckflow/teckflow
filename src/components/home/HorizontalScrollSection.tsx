@@ -111,7 +111,7 @@ const HorizontalScrollSection: React.FC = () => {
   const isMobile = isTouchDevice();
 
   return (
-    <div
+    <section
       ref={containerRef}
       className="relative h-screen bg-black overflow-hidden flex items-center"
     >
@@ -172,7 +172,7 @@ const HorizontalScrollSection: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

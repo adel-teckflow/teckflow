@@ -1,4 +1,5 @@
 import Hero from '../components/home/Hero'
+import SEO from '../components/SEO'
 import HorizontalScrollSection from '../components/home/HorizontalScrollSection' 
 import FilmmakingSection from '../components/home/FilmmakingSection'
 import PartnersSection from '../components/home/PartnersSection'
@@ -32,6 +33,10 @@ export default function Home() {
   return (
     <div className="antialiased bg-black text-gray-200 min-h-screen relative">
       <div className="noise-overlay"></div>
+      <SEO 
+        title="Accueil" 
+        description="Teckflow - Agence de design immersif et développement web en algérie. Nous créons des expériences digitales uniques."
+      />
       <ScrollFlow />
       <NavbarTeckflow />
       <Hero />

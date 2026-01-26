@@ -1,0 +1,136 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "language": "Langue"
+  },
+  "nav": {
+    "home": "Index",
+    "work": "Projets",
+    "about": "À Propos",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "Expérience Digitale v2.0",
+    "title_primary": "FUTUR",
+    "title_secondary": "ESTHÉTIQUE",
+    "description": "Nous créons des espaces numériques où la forme rencontre la fonction dans un chaos organisé.",
+    "cta_explore": "Explorer",
+    "cta_showreel": "Showreel",
+    "scroll_1": "SCROLL",
+    "scroll_2": "DOWN"
+  },
+  "services": {
+    "heading": "Nos",
+    "heading_stroke": "Services",
+    "creative_dev": "Développement Créatif",
+    "creative_dev_desc": "WebGL, Three.js, React. Nous repoussons les limites du navigateur pour créer des expériences fluides et mémorables.",
+    "ui_design": "UI/UX Design",
+    "ui_design_desc": "Interfaces centrées utilisateur avec une esthétique radicale.",
+    "3d_motion": "3D & Motion",
+    "3d_motion_desc": "Animation fluide et assets 3D pour un impact visuel maximal."
+  },
+  "partners": {
+    "heading": "Approuvé par les Leaders de l'Industrie"
+  },
+  "filmmaking": {
+    "title_1": "PRODUCTION",
+    "title_2": "CINÉMA",
+    "description": "Narration cinématographique réalisée avec précision. Du concept au montage final, nous livrons des chefs-d'œuvre visuels.",
+    "watch_preview": "Voir l'Aperçu",
+    "view_case_study": "Voir l'Étude de Cas",
+    "projects": {
+      "neon_nights": {
+        "title": "Neon Nights",
+        "category": "Clip Vidéo",
+        "description": "Une odyssée cyberpunk présentée dans Rolling Stone."
+      },
+      "velocity": {
+        "title": "Velocity",
+        "category": "Commercial",
+        "description": "Publicité automobile haute octane pour Porsche."
+      },
+      "echoes": {
+        "title": "Echoes",
+        "category": "Court Métrage",
+        "description": "Thriller de science-fiction sur la reconstruction de la mémoire."
+      }
+    }
+  },
+  "footer": {
+    "cta_line1": "Parlons",
+    "cta_line2": "Projet ?",
+    "rights": "© 2024 Teckflow. Tous droits réservés."
+  },
+  "contact": {
+    "hero_tag": "Parlons de votre projet",
+    "hero_title_1": "CONTACTEZ",
+    "hero_title_2": "NOUS",
+    "hero_description": "Prêt à transformer vos idées en réalité ? Contactez-nous aujourd'hui pour discuter de votre vision.",
+    "info_heading": "INFORMATIONS DE",
+    "info_heading_highlight": "CONTACT",
+    "address_label": "Adresse",
+    "phone_label": "Téléphone",
+    "email_label": "Email",
+    "form_heading": "ENVOYEZ UN",
+    "form_heading_highlight": "MESSAGE",
+    "form_name": "Nom",
+    "form_name_placeholder": "Votre nom",
+    "form_email": "Email",
+    "form_email_placeholder": "vous@exemple.com",
+    "form_message": "Message",
+    "form_message_placeholder": "Parlez-nous de votre projet...",
+    "form_submit": "Envoyer le message",
+    "form_sending": "Envoi en cours...",
+    "form_sent": "Message Envoyé !",
+    "social_heading": "Suivez-nous"
+  },
+  "services_page": {
+    "hero_tag": "Nos Expertises",
+    "hero_title_1": "NOS",
+    "hero_title_2": "SERVICES",
+    "hero_description": "Du développement web à l'intégration IA, nous livrons des solutions digitales innovantes qui stimulent la croissance.",
+    "web_dev_title": "Développement Web",
+    "web_dev_desc": "Sites web performants et engageants, optimisés pour l'expérience utilisateur.",
+    "web_dev_detail1": "Design Responsive",
+    "web_dev_detail2": "SEO Optimisé",
+    "web_dev_detail3": "Haute Performance",
+    "app_dev_title": "Développement d'Applications",
+    "app_dev_desc": "Applications mobiles iOS, Android et cross-platform haute performance.",
+    "app_dev_detail1": "Native & Cross-Platform",
+    "app_dev_detail2": "Prêt App Store",
+    "app_dev_detail3": "Intégration Cloud",
+    "ai_title": "Intégration IA",
+    "ai_desc": "Solutions intelligentes propulsées par l'IA et le machine learning.",
+    "ai_detail1": "Machine Learning",
+    "ai_detail2": "Solutions NLP",
+    "ai_detail3": "Analytique Prédictive",
+    "digital_transform_title": "Transformation Digitale",
+    "digital_transform_desc": "Modernisez votre entreprise avec des solutions technologiques de pointe.",
+    "digital_transform_detail1": "Automatisation des Processus",
+    "digital_transform_detail2": "Migration Cloud",
+    "digital_transform_detail3": "Analytique de Données",
+    "mvp_title": "Développement MVP",
+    "mvp_desc": "Prototypage rapide et création de produits minimum viables.",
+    "mvp_detail1": "Développement Rapide",
+    "mvp_detail2": "Architecture Scalable",
+    "mvp_detail3": "Prêt pour le Marché",
+    "video_title": "Production Vidéo",
+    "video_desc": "Contenu vidéo professionnel, montage et cinématographie aérienne.",
+    "video_detail1": "Enregistrement 4K",
+    "video_detail2": "Montage Professionnel",
+    "video_detail3": "Images Drone",
+    "process_heading": "NOTRE",
+    "process_heading_stroke": "PROCESSUS",
+    "process_step1_title": "DÉCOUVERTE",
+    "process_step1_desc": "Comprendre vos objectifs et votre vision",
+    "process_step2_title": "PLANIFICATION",
+    "process_step2_desc": "Créer une feuille de route détaillée",
+    "process_step3_title": "EXÉCUTION",
+    "process_step3_desc": "Construire avec précision et soin",
+    "process_step4_title": "LANCEMENT",
+    "process_step4_desc": "Déployer et célébrer le succès",
+    "cta_title": "PRÊT À CONSTRUIRE ?",
+    "cta_description": "Choisissez votre service et créons quelque chose d'incroyable ensemble.",
+    "cta_button": "Contactez-nous"
+  }
+}

@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useGSAP } from '../../hooks/useGSAP'
 import { gsap } from '../../utils/gsapConfig'
+import { useTranslation } from 'react-i18next'
 
 // Mock partners list (duplicated for infinite scroll)
 const partners = [
@@ -9,6 +10,7 @@ const partners = [
 ]
 
 const PartnersSection = () => {
+  const { t } = useTranslation()
   const trackRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
@@ -33,10 +35,10 @@ const PartnersSection = () => {
   }, [])
 
   return (
-    <div className="py-24 bg-black border-t border-white/5 overflow-hidden">
+    <section className="py-24 bg-black border-t border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 mb-12 text-center">
         <span className="text-cyan-400 font-mono text-sm tracking-widest uppercase">
-          Trusted By Industry Leaders
+          {t('partners.heading')}
         </span>
       </div>
 
@@ -62,7 +64,7 @@ const PartnersSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

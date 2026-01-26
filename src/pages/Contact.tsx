@@ -11,6 +11,7 @@ import ScrollReveal from '../components/animations/ScrollReveal'
 import TextScramble from '../components/animations/TextScramble'
 import MagneticButton from '../components/animations/MagneticButton'
 import ParallaxSection from '../components/animations/ParallaxSection'
+import { useTranslation } from 'react-i18next'
 
 const SOCIAL_LINKS: SocialLink[] = [
   { icon: <LiaLinkedin />, label: 'LinkedIn' },
@@ -20,6 +21,7 @@ const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 export default function Contact() {
+  const { t } = useTranslation()
   const [form, setForm] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -61,24 +63,23 @@ export default function Contact() {
           <ScrollReveal direction="down">
             <div className="mb-4 inline-block px-4 py-1.5 border border-white/20 rounded-full glass-panel">
               <span className="text-xs uppercase tracking-[0.2em] text-cyan-300">
-                Parlons de votre projet
+                {t('contact.hero_tag')}
               </span>
             </div>
           </ScrollReveal>
 
           <h1 className="text-6xl md:text-9xl font-black mb-6 leading-tight">
             <ScrollReveal>
-              CONTACTEZ <br />
+              {t('contact.hero_title_1')} <br />
             </ScrollReveal>
             <span className="text-stroke-only inline-block">
-              <TextScramble text="NOUS" delay={0.5} />
+              <TextScramble text={t('contact.hero_title_2')} delay={0.5} />
             </span>
           </h1>
 
           <ScrollReveal direction="up" delay={0.4}>
             <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed">
-              Prêt à transformer vos idées en réalité ? Contactez-nous aujourd'hui
-              pour discuter de votre vision.
+              {t('contact.hero_description')}
             </p>
           </ScrollReveal>
         </div>
@@ -99,7 +100,7 @@ export default function Contact() {
             <div className="space-y-8">
               <ScrollReveal direction="right">
                 <h2 className="text-4xl font-black mb-8">
-                  INFORMATIONS DE <span className="text-cyan-400">CONTACT</span>
+                  {t('contact.info_heading')} <span className="text-cyan-400">{t('contact.info_heading_highlight')}</span>
                 </h2>
               </ScrollReveal>
 
@@ -109,7 +110,7 @@ export default function Contact() {
                     <div className="glass-panel p-8 rounded-2xl hover:bg-white/10 transition-colors">
                       <MapPin className="w-10 h-10 text-cyan-400 mb-4" />
                       <h3 className="text-xl font-bold mb-3 uppercase tracking-wider">
-                        Adresse
+                        {t('contact.address_label')}
                       </h3>
                       <p className="text-gray-400 leading-relaxed">
                         RUE FRERES KADRI BATIMENT "A"
@@ -125,7 +126,7 @@ export default function Contact() {
                     <div className="glass-panel p-8 rounded-2xl hover:bg-white/10 transition-colors">
                       <Phone className="w-10 h-10 text-purple-400 mb-4" />
                       <h3 className="text-xl font-bold mb-3 uppercase tracking-wider">
-                        Téléphone
+                        {t('contact.phone_label')}
                       </h3>
                       <p className="text-gray-400 text-lg">+213 560 19 56 12</p>
                     </div>
@@ -135,7 +136,7 @@ export default function Contact() {
                     <div className="glass-panel p-8 rounded-2xl hover:bg-white/10 transition-colors">
                       <Mail className="w-10 h-10 text-pink-400 mb-4" />
                       <h3 className="text-xl font-bold mb-3 uppercase tracking-wider">
-                        Email
+                        {t('contact.email_label')}
                       </h3>
                       <p className="text-gray-400 text-lg">marketing@teckflow.net</p>
                     </div>
@@ -148,7 +149,7 @@ export default function Contact() {
             <div>
               <ScrollReveal direction="left">
                 <h2 className="text-4xl font-black mb-8">
-                  ENVOYEZ UN <span className="text-cyan-400">MESSAGE</span>
+                  {t('contact.form_heading')} <span className="text-cyan-400">{t('contact.form_heading_highlight')}</span>
                 </h2>
               </ScrollReveal>
 
@@ -157,7 +158,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="block text-sm font-semibold text-cyan-400 mb-2 uppercase tracking-wider">
-                        Nom
+                        {t('contact.form_name')}
                       </label>
                       <input
                         type="text"
@@ -166,13 +167,13 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full p-4 rounded-lg bg-black/50 border-2 border-white/10 text-white focus:outline-none focus:border-cyan-400 transition-all placeholder-gray-500"
-                        placeholder="Votre nom"
+                        placeholder={t('contact.form_name_placeholder')}
                       />
                     </div>
   
                     <div>
                       <label className="block text-sm font-semibold text-cyan-400 mb-2 uppercase tracking-wider">
-                        Email
+                        {t('contact.form_email')}
                       </label>
                       <input
                         type="email"
@@ -181,13 +182,13 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full p-4 rounded-lg bg-black/50 border-2 border-white/10 text-white focus:outline-none focus:border-cyan-400 transition-all placeholder-gray-500"
-                        placeholder="vous@exemple.com"
+                        placeholder={t('contact.form_email_placeholder')}
                       />
                     </div>
   
                     <div>
                       <label className="block text-sm font-semibold text-cyan-400 mb-2 uppercase tracking-wider">
-                        Message
+                        {t('contact.form_message')}
                       </label>
                       <textarea
                         name="message"
@@ -196,7 +197,7 @@ export default function Contact() {
                         required
                         rows={6}
                         className="w-full p-4 rounded-lg bg-black/50 border-2 border-white/10 text-white focus:outline-none focus:border-cyan-400 transition-all resize-none placeholder-gray-500"
-                        placeholder="Parlez-nous de votre projet..."
+                        placeholder={t('contact.form_message_placeholder')}
                       />
                     </div>
   
@@ -207,13 +208,13 @@ export default function Contact() {
                         className={`w-full px-8 py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-cyan-300 transition-all duration-300 rounded-sm flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
                       >
                         {isSubmitting ? (
-                          'Envoi en cours...'
+                          t('contact.form_sending')
                         ) : isSent ? (
-                          'Message Envoyé !'
+                          t('contact.form_sent')
                         ) : (
                           <>
                             <Send className="w-5 h-5" />
-                            Envoyer le message
+                            {t('contact.form_submit')}
                           </>
                         )}
                       </button>
@@ -232,7 +233,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto text-center mt-16">
           <ScrollReveal direction="up">
             <h3 className="text-2xl font-black text-cyan-400 mb-8 uppercase tracking-wider">
-              Suivez-nous
+              {t('contact.social_heading')}
             </h3>
           </ScrollReveal>
           

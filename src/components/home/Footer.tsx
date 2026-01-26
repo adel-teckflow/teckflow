@@ -1,11 +1,14 @@
 import MagneticButton from '../animations/MagneticButton'
 import ScrollReveal from '../animations/ScrollReveal'
 
+import { useTranslation } from 'react-i18next'
+
 /**
  * Composant Footer - Pied de page avec CTA et liens sociaux
  * Affiche un appel à l'action avec effet de texte stroke et les liens sociaux
  */
 const Footer = () => {
+  const { t } = useTranslation()
   return (
     <footer className="relative bg-black pt-20 pb-10 overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
@@ -17,9 +20,9 @@ const Footer = () => {
         <div className="group cursor-pointer">
           <ScrollReveal direction="up" delay={0.2}>
             <h2 className="text-[12vw] leading-none font-black font-display text-center uppercase text-stroke-only transition-all duration-500 select-none hover:text-white/10">
-              Parlons
+              {t('footer.cta_line1')}
               <br />
-              Projet ?
+              {t('footer.cta_line2')}
             </h2>
           </ScrollReveal>
           
@@ -36,7 +39,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-end mt-24 text-gray-500 text-sm">
           <ScrollReveal delay={0.6}>
-            <p>© 2024 Teckflow. All rights reserved.</p>
+            <p>{t('footer.rights')}</p>
           </ScrollReveal>
           
           <div className="flex gap-6 mt-4 md:mt-0">

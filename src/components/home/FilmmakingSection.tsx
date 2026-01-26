@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useGSAP } from '../../hooks/useGSAP'
 import { gsap } from '../../utils/gsapConfig'
 import ScrollReveal from '../animations/ScrollReveal'
+import { useTranslation } from 'react-i18next'
 
 const projects = [
   {
@@ -37,7 +38,7 @@ const FilmmakingSection = () => {
     const cards = cardsRef.current.filter(Boolean)
     
     // Staggered reveal based on scroll
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
       gsap.fromTo(card, 
         { 
           y: 100, 
@@ -61,8 +62,10 @@ const FilmmakingSection = () => {
     })
   }, [])
 
+  const { t } = useTranslation()
+
   return (
-    <div ref={containerRef} className="relative py-24 bg-black text-white overflow-hidden">
+    <section ref={containerRef} className="relative py-24 bg-black text-white overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black opacity-50" />
       
@@ -70,10 +73,10 @@ const FilmmakingSection = () => {
         <ScrollReveal>
           <div className="mb-20">
             <h2 className="text-5xl md:text-7xl font-bold font-display tracking-tighter mb-6">
-              FILM <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-600">PRODUCTION</span>
+              {t('filmmaking.title_1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-purple-600">{t('filmmaking.title_2')}</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl font-light">
-              Cinematic storytelling crafted with precision. From concept to final cut, we deliver visual masterpieces.
+              {t('filmmaking.description')}
             </p>
           </div>
         </ScrollReveal>
@@ -97,7 +100,7 @@ const FilmmakingSection = () => {
                      <div className="w-20 h-20 rounded-full border-2 border-white/20 flex items-center justify-center mx-auto mb-4 backdrop-blur-xl group-hover:border-white/50 transition-colors">
                        <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1" />
                      </div>
-                     <span className="text-sm font-mono tracking-widest uppercase text-white/60">Watch Preview</span>
+                     <span className="text-sm font-mono tracking-widest uppercase text-white/60">{t('filmmaking.watch_preview')}</span>
                    </div>
                 </div>
 
@@ -117,7 +120,7 @@ const FilmmakingSection = () => {
                 </p>
                 <button className="flex items-center gap-3 text-white group/btn">
                   <span className="text-sm font-bold tracking-widest uppercase border-b border-transparent group-hover/btn:border-red-500 transition-colors pb-1">
-                    View Case Study
+                    {t('filmmaking.view_case_study')}
                   </span>
                 </button>
               </div>
@@ -125,7 +128,7 @@ const FilmmakingSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

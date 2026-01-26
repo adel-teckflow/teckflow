@@ -6,70 +6,74 @@ import { Service, ProcessStep } from '../types'
 import ScrollReveal from '../components/animations/ScrollReveal'
 import TextScramble from '../components/animations/TextScramble'
 import ParallaxSection from '../components/animations/ParallaxSection'
-
-const SERVICES: Service[] = [
-  {
-    title: 'Web Development',
-    desc: 'Sites web performants et engageants, optimisés pour l\'expérience utilisateur.',
-    icon: <Code className="w-12 h-12 text-cyan-400" />,
-    details: ['Responsive Design', 'SEO Optimisé', 'Haute Performance'],
-  },
-  {
-    title: 'App Development',
-    desc: 'Applications mobiles iOS, Android et cross-platform haute performance.',
-    icon: <Smartphone className="w-12 h-12 text-purple-400" />,
-    details: ['Native & Cross-Platform', 'App Store Ready', 'Cloud Integration'],
-  },
-  {
-    title: 'AI Integration',
-    desc: 'Solutions intelligentes propulsées par l\'IA et le machine learning.',
-    icon: <Brain className="w-12 h-12 text-pink-400" />,
-    details: ['Machine Learning', 'NLP Solutions', 'Predictive Analytics'],
-  },
-  {
-    title: 'Digital Transformation',
-    desc: 'Modernisez votre entreprise avec des solutions technologiques de pointe.',
-    icon: <Zap className="w-12 h-12 text-yellow-400" />,
-    details: ['Process Automation', 'Cloud Migration', 'Data Analytics'],
-  },
-  {
-    title: 'MVP Development',
-    desc: 'Prototypage rapide et création de produits minimum viables.',
-    icon: <Rocket className="w-12 h-12 text-green-400" />,
-    details: ['Fast Development', 'Scalable Architecture', 'Market Ready'],
-  },
-  {
-    title: 'Video Production',
-    desc: 'Contenu vidéo professionnel, montage et cinématographie aérienne.',
-    icon: <Video className="w-12 h-12 text-red-400" />,
-    details: ['4K Recording', 'Professional Editing', 'Drone Footage'],
-  },
-]
-
-const PROCESS: ProcessStep[] = [
-  {
-    step: '01',
-    title: 'DISCOVERY',
-    desc: 'Comprendre vos objectifs et votre vision',
-  },
-  {
-    step: '02',
-    title: 'PLANNING',
-    desc: 'Créer une feuille de route détaillée',
-  },
-  {
-    step: '03',
-    title: 'EXECUTION',
-    desc: 'Construire avec précision et soin',
-  },
-  {
-    step: '04',
-    title: 'LAUNCH',
-    desc: 'Déployer et célébrer le succès',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 export default function Services() {
+  const { t } = useTranslation()
+
+  // Dynamic services array using translations
+  const SERVICES: Service[] = [
+    {
+      title: t('services_page.web_dev_title'),
+      desc: t('services_page.web_dev_desc'),
+      icon: <Code className="w-12 h-12 text-cyan-400" />,
+      details: [t('services_page.web_dev_detail1'), t('services_page.web_dev_detail2'), t('services_page.web_dev_detail3')],
+    },
+    {
+      title: t('services_page.app_dev_title'),
+      desc: t('services_page.app_dev_desc'),
+      icon: <Smartphone className="w-12 h-12 text-purple-400" />,
+      details: [t('services_page.app_dev_detail1'), t('services_page.app_dev_detail2'), t('services_page.app_dev_detail3')],
+    },
+    {
+      title: t('services_page.ai_title'),
+      desc: t('services_page.ai_desc'),
+      icon: <Brain className="w-12 h-12 text-pink-400" />,
+      details: [t('services_page.ai_detail1'), t('services_page.ai_detail2'), t('services_page.ai_detail3')],
+    },
+    {
+      title: t('services_page.digital_transform_title'),
+      desc: t('services_page.digital_transform_desc'),
+      icon: <Zap className="w-12 h-12 text-yellow-400" />,
+      details: [t('services_page.digital_transform_detail1'), t('services_page.digital_transform_detail2'), t('services_page.digital_transform_detail3')],
+    },
+    {
+      title: t('services_page.mvp_title'),
+      desc: t('services_page.mvp_desc'),
+      icon: <Rocket className="w-12 h-12 text-green-400" />,
+      details: [t('services_page.mvp_detail1'), t('services_page.mvp_detail2'), t('services_page.mvp_detail3')],
+    },
+    {
+      title: t('services_page.video_title'),
+      desc: t('services_page.video_desc'),
+      icon: <Video className="w-12 h-12 text-red-400" />,
+      details: [t('services_page.video_detail1'), t('services_page.video_detail2'), t('services_page.video_detail3')],
+    },
+  ]
+
+  const PROCESS: ProcessStep[] = [
+    {
+      step: '01',
+      title: t('services_page.process_step1_title'),
+      desc: t('services_page.process_step1_desc'),
+    },
+    {
+      step: '02',
+      title: t('services_page.process_step2_title'),
+      desc: t('services_page.process_step2_desc'),
+    },
+    {
+      step: '03',
+      title: t('services_page.process_step3_title'),
+      desc: t('services_page.process_step3_desc'),
+    },
+    {
+      step: '04',
+      title: t('services_page.process_step4_title'),
+      desc: t('services_page.process_step4_desc'),
+    },
+  ]
+
   return (
     <div className="antialiased bg-black text-gray-200 min-h-screen">
       <div className="noise-overlay"></div>
@@ -81,24 +85,23 @@ export default function Services() {
           <ScrollReveal direction="down">
             <div className="mb-4 inline-block px-4 py-1.5 border border-white/20 rounded-full glass-panel">
               <span className="text-xs uppercase tracking-[0.2em] text-cyan-300">
-                Nos Expertises
+                {t('services_page.hero_tag')}
               </span>
             </div>
           </ScrollReveal>
 
           <h1 className="text-6xl md:text-9xl font-black mb-6 leading-tight">
             <ScrollReveal>
-              NOS <br />
+              {t('services_page.hero_title_1')} <br />
             </ScrollReveal>
             <span className="text-stroke-only inline-block">
-              <TextScramble text="SERVICES" delay={0.5} />
+              <TextScramble text={t('services_page.hero_title_2')} delay={0.5} />
             </span>
           </h1>
 
           <ScrollReveal direction="up" delay={0.4}>
             <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed">
-              Du développement web à l'intégration IA, nous livrons des solutions
-              digitales innovantes qui stimulent la croissance.
+              {t('services_page.hero_description')}
             </p>
           </ScrollReveal>
         </div>
@@ -151,7 +154,7 @@ export default function Services() {
         <div className="max-w-5xl mx-auto relative z-10">
           <ScrollReveal>
             <h2 className="text-5xl md:text-7xl font-black text-center mb-20">
-              NOTRE <span className="text-stroke-only">PROCESSUS</span>
+              {t('services_page.process_heading')} <span className="text-stroke-only">{t('services_page.process_heading_stroke')}</span>
             </h2>
           </ScrollReveal>
 
@@ -183,20 +186,19 @@ export default function Services() {
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <ScrollReveal direction="scale">
             <h2 className="text-5xl md:text-7xl font-black mb-8 text-stroke-only hover:text-white transition-all duration-500 cursor-pointer">
-              PRÊT À CONSTRUIRE ?
+              {t('services_page.cta_title')}
             </h2>
           </ScrollReveal>
           
           <ScrollReveal delay={0.2}>
             <p className="text-xl text-gray-400 mb-10 leading-relaxed">
-              Choisissez votre service et créons quelque chose d'incroyable
-              ensemble.
+              {t('services_page.cta_description')}
             </p>
           </ScrollReveal>
           
           <ScrollReveal delay={0.4} direction="up">
             <button className="px-10 py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-cyan-300 transition-colors duration-300 rounded-sm">
-              Contactez-nous
+              {t('services_page.cta_button')}
             </button>
           </ScrollReveal>
         </div>

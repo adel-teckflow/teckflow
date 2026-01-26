@@ -5,12 +5,14 @@ import ParallaxSection from '../animations/ParallaxSection'
 import ScrollReveal from '../animations/ScrollReveal'
 import CircuitBackground from '../animations/CircuitBackground'
 import LaptopAnimation from '../animations/LaptopAnimation'
+import { useTranslation } from 'react-i18next'
 
 /**
  * Composant Hero - Section principale de la page d'accueil
  * Affiche le titre principal, la description et les boutons CTA
  */
 const Hero = () => {
+  const { t } = useTranslation()
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
       {/* Background Animated */}
@@ -22,18 +24,18 @@ const Hero = () => {
           <ScrollReveal direction="down" duration={1} delay={0.2}>
             <div className="mb-4 inline-block px-4 py-1.5 border border-white/20 rounded-full glass-panel">
               <span className="text-xs uppercase tracking-[0.2em] text-cyan-300">
-                Experience Digitale v2.0
+                {t('hero.tag')}
               </span>
             </div>
           </ScrollReveal>
 
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight mix-blend-overlay opacity-90">
             <ScrollReveal delay={0.4}>
-              FUTUR <br />
+              {t('hero.title_primary')} <br />
             </ScrollReveal>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 animate-gradient inline-block">
               <TextScramble 
-                text="ESTHÉTIQUE" 
+                text={t('hero.title_secondary')}
                 delay={0.6} 
                 scrambleSpeed={40}
               />
@@ -42,8 +44,7 @@ const Hero = () => {
 
           <ScrollReveal delay={0.8} direction="up">
             <p className="max-w-xl text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-10">
-              Nous créons des espaces numériques où la forme rencontre la fonction
-              dans un chaos organisé.
+              {t('hero.description')}
             </p>
           </ScrollReveal>
 
@@ -51,13 +52,13 @@ const Hero = () => {
             <div className="flex gap-6">
               <MagneticButton>
                 <button className="px-8 py-3 bg-white text-black font-bold uppercase tracking-wide hover:bg-cyan-300 transition-colors duration-300 rounded-sm">
-                  Explorer
+                  {t('hero.cta_explore')}
                 </button>
               </MagneticButton>
 
               <MagneticButton strength={0.2}>
                 <button className="px-8 py-3 border border-white/30 hover:border-white text-white font-bold uppercase tracking-wide transition-colors duration-300 rounded-sm glass-panel">
-                  Showreel
+                  {t('hero.cta_showreel')}
                 </button>
               </MagneticButton>
             </div>
@@ -86,9 +87,9 @@ const Hero = () => {
       >
         <div className="w-32 h-32 border border-white/10 rounded-full animate-float flex items-center justify-center glass-panel">
           <div className="w-full text-center text-xs text-white/30 font-mono">
-            SCROLL
+            {t('hero.scroll_1')}
             <br />
-            DOWN
+            {t('hero.scroll_2')}
           </div>
         </div>
       </ParallaxSection>
