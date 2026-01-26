@@ -9,7 +9,7 @@ const partnersData = [
   { name: "master focus", href: "https://masterfocus.dz" },
   { name: "kulyx", href: "https://kulyx.com" },
   { name: "packflow", href: "https://packflow.dz" },
-  { name: "idhyha", href: "https://www.idhyha.com/" }
+  { name: "idhyha", href: "https://www.teckflow.net" }
 ]
 
 // Duplicate partners multiple times for infinite scroll effect
